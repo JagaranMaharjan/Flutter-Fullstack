@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ToDoModel with ChangeNotifier {
-  final int id;
+  int id;
   final String title;
   final String description;
 
@@ -15,4 +15,12 @@ class ToDoModel with ChangeNotifier {
         title: json['title'] as String,
         description: json['description'] as String);
   }
+
+  //send data to add/update new to do, convert that information from dart to Json
+  dynamic toJson() =>
+      {
+        'id': id,
+        'title': title,
+        'description': description,
+      };
 }
